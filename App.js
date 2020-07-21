@@ -1,17 +1,22 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export default function App() {
-  console.log("This is checking");
-
-  let x;
-  x.toString();
+  const handlePressed = () => console.log("Pressed");
   return (
     <View style={styles.container}>
-      <Text style={styles.textcolor1}>
-        Open up App.js to start working on your app Hamza!
+      <Text numberOfLines={1} onPress={handlePressed}>
+        Open up App.js to start working on your app Ar!
       </Text>
+      <Image
+        blurRadius={0.5}
+        source={{
+          width: 200,
+          height: 300,
+          uri: "https://picsum.photos/seed/picsum/200/300",
+        }}
+      ></Image>
       <StatusBar style="auto" />
     </View>
   );
@@ -20,11 +25,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "blue",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-  },
-  textcolor1: {
-    color: "white",
   },
 });
