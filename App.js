@@ -1,24 +1,21 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  StatusBar,
+  SafeAreaView,
+} from "react-native";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
-  const handlePressed = () => console.log("Pressed");
   return (
-    <View style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePressed}>
-        Open up App.js to start working on your app Ar!
-      </Text>
-      <Image
-        blurRadius={0.5}
-        source={{
-          width: 200,
-          height: 300,
-          uri: "https://picsum.photos/seed/picsum/200/300",
-        }}
-      ></Image>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {/* <WelcomeScreen /> */}
+      <ViewImageScreen />
+    </SafeAreaView>
   );
 }
 
@@ -26,7 +23,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
