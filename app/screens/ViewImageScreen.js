@@ -5,8 +5,12 @@ import Colors from "../config/color";
 function ViewImageScreen(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.closeIcon}></View>
-      <View style={styles.deleteIcon}></View>
+      <View style={styles.closeIcon}>
+        <Text>Close</Text>
+      </View>
+      <View style={styles.deleteIcon}>
+        <Text>Delete</Text>
+      </View>
       <Image
         resizeMode="contain"
         style={styles.image}
@@ -28,19 +32,23 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   closeIcon: {
-    width: 60,
-    height: 30,
+    width: 80,
+    height: 40,
     backgroundColor: Colors.primaryColor,
     position: "absolute",
     top: 20,
     left: 20,
+    alignItems: "center",
+    justifyContent: "center",
   },
   deleteIcon: {
-    width: 60,
-    height: 30,
+    width: 80,
+    height: 40,
     backgroundColor: Colors.secondayColor,
     position: "absolute",
     top: 20,
     right: 20,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
