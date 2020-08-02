@@ -9,12 +9,28 @@ import {
 } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import Card from "./app/components/Card";
+import LisitingDeatilsScreen from "./app/components/LisitingDeatilsScreen";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
-      <ViewImageScreen />
+      {/* <ViewImageScreen /> */}
+
+      {/* <Text style={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}>
+        Cards
+      </Text>
+      <Card
+        title={"Black Grey Jacket For Sale"}
+        subTitle={"Price: $100"}
+        image={require("./app/assets/jacket.jpg")}
+      /> */}
+
+      <Text style={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}>
+        Specific Card's Detail
+      </Text>
+      <LisitingDeatilsScreen />
     </SafeAreaView>
   );
 }
