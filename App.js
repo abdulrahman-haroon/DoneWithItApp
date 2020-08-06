@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,6 +6,7 @@ import {
   Image,
   StatusBar,
   SafeAreaView,
+  Switch,
 } from "react-native";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -18,6 +19,9 @@ import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingScreen from "./app/screens/ListingScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   {
@@ -44,10 +48,36 @@ export default function App() {
       </Text>
       <LisitingDeatilsScreen /> */
   }
-  return (
-    // <MessagesScreen />
-    <ListingScreen />
-  );
+  // <MessagesScreen />
+  // <ListingScreen />
+  const categories = [
+    {
+      label: "Furniture",
+      value: 1,
+    },
+    {
+      label: "Clothing",
+      value: 2,
+    },
+    {
+      label: "Cameras",
+      value: 3,
+    },
+  ];
+
+  //const [category, setCategory] = useState();
+  {
+    /* <AppPicker
+    selectedItem={category}
+    onSelectItem={(item) => setCategory(item)}
+    items={categories}
+    icon="apps"
+    placeholder="Categories"
+  />
+  <AppTextInput icon="email" placeholder="Email" /> */
+  }
+
+  return <LoginScreen />;
 }
 
 const styles = StyleSheet.create({

@@ -29,7 +29,7 @@ function ListingScreen(props) {
     <Screen style={styles.screen}>
       <FlatList
         data={listings}
-        keyExtractor={(listing) => listing.id}
+        keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card
             title={item.title}
