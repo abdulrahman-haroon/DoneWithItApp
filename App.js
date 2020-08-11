@@ -22,6 +22,8 @@ import ListingScreen from "./app/screens/ListingScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
+import ListEditScreen from "./app/screens/ListEditScreen";
 
 export default function App() {
   {
@@ -65,19 +67,22 @@ export default function App() {
     },
   ];
 
-  //const [category, setCategory] = useState();
-  {
-    /* <AppPicker
-    selectedItem={category}
-    onSelectItem={(item) => setCategory(item)}
-    items={categories}
-    icon="apps"
-    placeholder="Categories"
-  />
-  <AppTextInput icon="email" placeholder="Email" /> */
-  }
-
-  return <LoginScreen />;
+  const [category, setCategory] = useState();
+  return (
+    // <Screen>
+    //   <AppPicker
+    //     selectedItem={category}
+    //     onSelectItem={(item) => setCategory(item)}
+    //     items={categories}
+    //     icon="apps"
+    //     placeholder="Categories"
+    //   />
+    //   <AppTextInput icon="email" placeholder="Email" />
+    // </Screen>
+    // <LoginScreen />
+    // <RegisterScreen />
+    <ListEditScreen />
+  );
 }
 
 const styles = StyleSheet.create({
