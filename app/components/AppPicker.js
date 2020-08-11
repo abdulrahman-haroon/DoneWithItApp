@@ -6,13 +6,14 @@ import {
   TouchableWithoutFeedback,
   Modal,
   Button,
+  FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyle from "../config/styles";
 import AppText from "./AppText";
 import Screen from "../screens/Screen";
-import { FlatList } from "react-native-gesture-handler";
+
 import PickerItem from "./PickerItem";
 
 function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
