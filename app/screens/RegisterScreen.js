@@ -49,7 +49,7 @@ function RegisterScreen(props) {
           typeContextType="password" //IOS
           name="password"
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="REGISTER" />
       </AppForm>
     </Screen>
   );

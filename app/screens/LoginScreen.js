@@ -42,7 +42,7 @@ function LoginScreen(props) {
           typeContextType="password" //IOS
           name="password"
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="LOGIN" />
       </AppForm>
     </Screen>
   );

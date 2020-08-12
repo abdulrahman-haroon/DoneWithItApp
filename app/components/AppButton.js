@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   btnTitle: {
     color: "white",
     fontSize: 24,
-    textTransform: "capitalize",
+    // textTransform: "capitalize",
     fontWeight: "bold",
   },
 });

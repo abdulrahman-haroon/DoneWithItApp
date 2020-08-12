@@ -64,7 +64,7 @@ function ListEditScreen(props) {
           numberOfLines={3}
           multiline
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="POST" />
       </AppForm>
     </Screen>
   );
