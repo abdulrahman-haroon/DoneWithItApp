@@ -3,8 +3,8 @@ import { View, StyleSheet, Text, Platform } from "react-native";
 
 import color from "../config/color";
 
-function AppText({ title, style }) {
-  return <Text style={[styles.Text, style]}>{title}</Text>;
+function AppText({ title, style,...otherProps }) {
+  return <Text style={[styles.Text, style]} {...otherProps}>{title}</Text>;
 }
 const styles = StyleSheet.create({
   Text: {

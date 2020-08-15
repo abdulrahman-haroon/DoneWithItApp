@@ -11,8 +11,8 @@ function card({ image, title, subTitle }) {
         <Image style={styles.cardImage} source={image} />
 
         <View style={styles.detailsContainer}>
-          <AppText style={styles.title} title={title} />
-          <AppText style={styles.subtitle} title={subTitle} />
+          <AppText style={styles.title} title={title} numberOfLines={1} />
+          <AppText style={styles.subtitle} title={subTitle} numberOfLines={2}/>
         </View>
       </View>
     </View>

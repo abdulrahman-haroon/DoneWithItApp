@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
-import Screen from "./Screen";
+import Screen from "../components/Screen";
 import Card from "../components/Card";
 import color from "../config/color";
 

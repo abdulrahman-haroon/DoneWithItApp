@@ -14,74 +14,36 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import Card from "./app/components/Card";
 import LisitingDeatilsScreen from "./app/screens/LisitingDeatilsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
-import Screen from "./app/screens/Screen";
+import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
-import ListItem from "./app/components/ListItem";
+import ListItem from "./app/components/lists/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingScreen from "./app/screens/ListingScreen";
-import AppTextInput from "./app/components/AppTextInput";
+import AppTextInput from "./app/components/forms/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListEditScreen from "./app/screens/ListEditScreen";
 
 export default function App() {
-  {
-    /* <WelcomeScreen /> */
-  }
-  {
-    /* <ViewImageScreen /> */
-  }
-
-  {
-    /* <Text style={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}>
-        Cards
-      </Text>
-      <Card
-        title={"Black Grey Jacket For Sale"}
-        subTitle={"Price: $100"}
-        image={require("./app/assets/jacket.jpg")}
-      /> */
-  }
-
-  {
-    /* <Text style={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}>
-        Specific Card's Detail
-      </Text>
-      <LisitingDeatilsScreen /> */
-  }
-  // <MessagesScreen />
-  // <ListingScreen />
-  const categories = [
-    {
-      label: "Furniture",
-      value: 1,
-    },
-    {
-      label: "Clothing",
-      value: 2,
-    },
-    {
-      label: "Cameras",
-      value: 3,
-    },
-  ];
-
+  
+   
+      
   const [category, setCategory] = useState();
   return (
+    // <WelcomeScreen /> 
+    // <ViewImageScreen />
     // <Screen>
-    //   <AppPicker
-    //     selectedItem={category}
-    //     onSelectItem={(item) => setCategory(item)}
-    //     items={categories}
-    //     icon="apps"
-    //     placeholder="Categories"
-    //   />
-    //   <AppTextInput icon="email" placeholder="Email" />
+    //  
     // </Screen>
+  // <ListingScreen />
+   //<LisitingDeatilsScreen /> 
     // <LoginScreen />
     // <RegisterScreen />
+    
     <ListEditScreen />
+    
+    // <MessagesScreen />
   );
 }
 
