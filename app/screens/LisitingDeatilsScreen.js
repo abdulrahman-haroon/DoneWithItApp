@@ -4,9 +4,6 @@ import AppText from "../components/AppText";
 import { ListItem } from "../components/lists";
 import colors from "../config/color";
 
-
-
-
 function LisitingDeatilsScreen(props) {
   return (
     <View>
