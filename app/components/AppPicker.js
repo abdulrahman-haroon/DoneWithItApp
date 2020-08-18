@@ -16,12 +16,21 @@ import Screen from "./Screen";
 
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, items,numOfColumns=1, onSelectItem, PickerItemComponent=PickerItem,placeholder, selectedItem,width="100%" }) {
+function AppPicker({
+  icon,
+  items,
+  numOfColumns = 1,
+  onSelectItem,
+  PickerItemComponent = PickerItem,
+  placeholder,
+  selectedItem,
+  width = "100%",
+}) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <React.Fragment>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={[styles.container,{width}]}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -48,13 +57,12 @@ function AppPicker({ icon, items,numOfColumns=1, onSelectItem, PickerItemCompone
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
           <FlatList
-
             data={items}
             keyExtractor={(item) => item.value.toString()}
             numColumns={numOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent
-              item={item}
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
