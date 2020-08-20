@@ -80,7 +80,6 @@ function ListEditScreen(props) {
   const location = useLocation();
   return (
     <Screen>
-      {/* <Image style={styles.image} source={require("../assets/logo.png")} /> */}
       <AppForm
         initialValues={{
           title: "",
