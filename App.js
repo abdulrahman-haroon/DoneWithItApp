@@ -8,8 +8,6 @@ import NavigationTheme from "./app/navigation/NavigationTheme";
 import AppNavigator from "./app/navigation/AppNavigation";
 
 export default function App() {
-  // const [category, setCategory] = useState();
-
   return (
     <NavigationContainer theme={NavigationTheme}>
       {/* <AuthNavigator /> */}
