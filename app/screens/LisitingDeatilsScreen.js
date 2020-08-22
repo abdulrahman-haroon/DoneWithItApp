@@ -3,15 +3,18 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import AppText from "../components/AppText";
 import { ListItem } from "../components/lists";
 import colors from "../config/color";
+import Screen from "../components/Screen";
 
-function LisitingDeatilsScreen(props) {
+function LisitingDeatilsScreen({ route }) {
+  const listings = route.params;
   return (
-    <View>
-      <Image style={styles.image} source={require("../assets/jacket.jpg")} />
+    <Screen>
+      <Image style={styles.image} source={listings.image} />
       <View style={styles.detailContainer}>
-        <AppText style={styles.title} title="Gray Jacket For Sale" />
-        <AppText style={styles.price} title="Price: $100" />
-
+        <AppText style={styles.title} title={listings.title} />
+        <AppText style={styles.price} title={"Price: $" + listings.price} />
+        {/* 
+        TODO: if you want to add it then add it else no need.
         <Text
           style={{
             textAlign: "center",
@@ -22,7 +25,7 @@ function LisitingDeatilsScreen(props) {
           }}
         >
           Users & Listing
-        </Text>
+        </Text> */}
         <View style={styles.userContainer}>
           <ListItem
             title="User 1"
@@ -31,7 +34,7 @@ function LisitingDeatilsScreen(props) {
           />
         </View>
       </View>
-    </View>
+    </Screen>
   );
 }
 const styles = StyleSheet.create({

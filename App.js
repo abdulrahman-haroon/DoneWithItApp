@@ -1,24 +1,19 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import ListEditScreen from "./app/screens/ListEditScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import NavigationTheme from "./app/navigation/NavigationTheme";
+import AppNavigator from "./app/navigation/AppNavigation";
 
 export default function App() {
   // const [category, setCategory] = useState();
 
   return (
-    // <WelcomeScreen />
-    // <ViewImageScreen />
-    // <Screen>
-    //
-    // </Screen>
-    // <ListingScreen />
-    //<LisitingDeatilsScreen />
-    // <LoginScreen />
-    // <RegisterScreen />
-
-    <ListEditScreen />
-
-    // <MessagesScreen />
+    <NavigationContainer theme={NavigationTheme}>
+      {/* <AuthNavigator /> */}
+      <AppNavigator />
+    </NavigationContainer>
   );
 }
 
@@ -26,7 +21,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });

@@ -20,19 +20,27 @@ function ListItem({
   IconComponent,
   onPress,
   renderRightActions,
-  showChevron=false
+  showChevron = false,
 }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      <TouchableHighlight underlayColor={color.lightgray} onPress={onPress}>
+      <TouchableHighlight underlayColor={color.red} onPress={onPress}>
         <View style={styles.container}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
             <AppText style={styles.title} title={title} numberOfLines={1} />
-            {subTitle && <AppText style={styles.subTitle} title={subTitle}  numberOfLines={2} />}
+            {subTitle && (
+              <AppText
+                style={styles.subTitle}
+                title={subTitle}
+                numberOfLines={2}
+              />
+            )}
           </View>
-         {showChevron===true && <MaterialCommunityIcons name="chevron-right" size={25} />}
+          {showChevron === true && (
+            <MaterialCommunityIcons name="chevron-right" size={25} />
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -43,10 +51,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     backgroundColor: "white",
-    alignItems:"center"
+    alignItems: "center",
   },
   detailsContainer: {
-    flex:1,
+    flex: 1,
     marginLeft: 10,
     justifyContent: "center",
   },

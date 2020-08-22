@@ -3,11 +3,12 @@ import { StyleSheet, View, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import color from "../config/color";
+import routes from "../navigation/routes";
 
 const listings = [
   {
     id: 1,
-    title: "GGray Jacket For Sale",
+    title: "Gray Jacket For Sale",
     price: 100,
     image: require("../assets/jacket.jpg"),
   },
@@ -24,10 +25,11 @@ const listings = [
     image: require("../assets/tvStand.jpg"),
   },
 ];
-function ListingScreen(props) {
+function ListingScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
@@ -35,6 +37,7 @@ function ListingScreen(props) {
             title={item.title}
             subTitle={"$" + item.price}
             image={item.image}
+            onPress={() => navigation.navigate(routes.LISITING_DETAILS, item)}
           />
         )}
       />
@@ -43,7 +46,7 @@ function ListingScreen(props) {
 }
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: color.lightgray,
+    backgroundColor: color.white,
   },
 });
 export default ListingScreen;
