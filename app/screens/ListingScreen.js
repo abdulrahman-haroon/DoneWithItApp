@@ -1,42 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import color from "../config/color";
 import routes from "../navigation/routes";
 
-const listings = [
-  {
-    id: 1,
-    title: "Gray Jacket For Sale",
-    price: 100,
-    image: require("../assets/jacket.jpg"),
-  },
-  {
-    id: 2,
-    title: "Couch in Great Condition",
-    price: 1000,
-    image: require("../assets/couch.png"),
-  },
-  {
-    id: 3,
-    title: "TV Stand",
-    price: 500,
-    image: require("../assets/tvStand.jpg"),
-  },
-];
+import listingsApi from "../api/listings";
+import AppText from "../components/AppText";
+import AppButton from "../components/AppButton";
+
+import ActivityIndicator from "../components/ActivityIndicator";
+import useApi from "../Hooks/useApi";
+
 function ListingScreen({ navigation }) {
+  const { data: listings, error, loading, request: loadListings } = useApi(
+    listingsApi.getListings
+  );
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AppText
+            title="Couldn't retrieve the listings"
+            style={{ color: "red", fontSize: 18, fontWeight: "bold" }}
+          />
+          <AppButton title="Retry" onPress={loadListings} />
+        </View>
+      )}
+      <ActivityIndicator visible={loading} />
       <FlatList
         showsVerticalScrollIndicator={false}
         data={listings}
+        refreshing={false}
+        onRefresh={loadListings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card
             title={item.title}
             subTitle={"$" + item.price}
-            image={item.image}
+            imageUrl={item.images[0].url}
             onPress={() => navigation.navigate(routes.LISITING_DETAILS, item)}
           />
         )}
