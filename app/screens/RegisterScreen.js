@@ -1,8 +1,17 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
 import * as Yup from "yup";
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import {
+  AppForm,
+  AppFormField,
+  SubmitButton,
+  ErrorMessage,
+} from "../components/forms";
 import Screen from "../components/Screen";
+import users from "../api/users";
+import useAuth from "../auth/useAuth";
+import authApi from "../api/auth";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -11,20 +20,67 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterScreen(props) {
+  const { login } = useAuth();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [registerFailed, setRegisterFailed] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const handleSubmit = async ({ name, email, password }) => {
+    setProgress(0);
+    setUploadVisible(true);
+
+    const result = await users.register(name, email, password, (progress) =>
+      setProgress(progress)
+    );
+
+    if (!result.ok) {
+      return setRegisterFailed(true), setUploadVisible(false);
+    } else {
+      setRegisterFailed(false);
+
+      const result2 = await authApi.login(email, password);
+
+      if (!result2.ok) {
+        return console.log("error in login"), setUploadVisible(false);
+      }
+
+      login(result2.data);
+    }
+  };
   return (
     <Screen>
-      {/* <Image style={styles.image} source={require("../assets/logo.png")} /> */}
+      <UploadScreen
+        progress={progress}
+        visible={uploadVisible}
+        onDone={() => setUploadVisible(false)}
+      />
       <AppForm
         initialValues={{ name: "", email: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
+        {registerFailed && (
+          <View
+            style={{
+              marginVertical: 20,
+              marginHorizontal: 20,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <ErrorMessage
+              error="A user with the given email already exists."
+              visible={registerFailed}
+            />
+          </View>
+        )}
         <AppFormField
           icon="account"
           placeholder="Name"
           autoCorrect={false}
           name="name"
         />
+
         <AppFormField
           icon="email"
           placeholder="Email"

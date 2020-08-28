@@ -1,22 +1,24 @@
 import React from "react";
 import { View, StyleSheet, Modal } from "react-native";
-import AppText from "../components/AppText";
 
 import * as Progress from "react-native-progress";
 import color from "../config/color";
 
 import LottieView from "lottie-react-native";
+import AppText from "../components/AppText";
 
 function UploadScreen({ onDone, progress = 0, visible = false }) {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
         {progress < 1 ? (
-          <Progress.Bar
-            color={color.primaryColor}
-            progress={progress}
-            width={200}
-          />
+          <>
+            <Progress.Bar
+              color={color.primaryColor}
+              progress={progress}
+              width={200}
+            />
+          </>
         ) : (
           <LottieView
             autoPlay
